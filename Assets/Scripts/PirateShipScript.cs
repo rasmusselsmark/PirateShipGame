@@ -3,8 +3,6 @@ using System.Collections;
 
 public class PirateShipScript : MonoBehaviour
 {
-	public float Speed = 4.0f;
-
 	// Use this for initialization
 	void Start ()
 	{
@@ -15,8 +13,8 @@ public class PirateShipScript : MonoBehaviour
 	void Update ()
 	{
 		this.GetComponent<Transform>().Translate(
-			Input.GetAxis("Horizontal") * Time.deltaTime * Speed,
-			Input.GetAxis("Vertical") * Time.deltaTime * Speed,
+			Input.GetAxis("Horizontal") * Time.deltaTime * (GameManager.GetSpeed() + 3),
+			Input.GetAxis("Vertical") * Time.deltaTime * (GameManager.GetSpeed() + 3),
 			0.0f);
 	}
 

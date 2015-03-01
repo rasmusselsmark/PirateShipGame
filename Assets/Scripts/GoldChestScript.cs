@@ -2,13 +2,11 @@
 
 public class GoldChestScript : MonoBehaviour
 {
-	public float Speed = 1.0f;
-
 	// Update is called once per frame
 	void Update ()
 	{
 		Transform t = this.GetComponent<Transform>();
-		t.Translate(new Vector2(0, Speed * Time.deltaTime));
+		t.Translate(new Vector2(0, (GameManager.GetSpeed() + 1) * Time.deltaTime));
 	}
 
 	void OnTriggerEnter2D(Collider2D other)

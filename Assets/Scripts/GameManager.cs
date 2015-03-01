@@ -31,12 +31,12 @@ public class GameManager : MonoBehaviour
 		}
 		else
 		{
-			if (Random.value > 0.995)
+			if (Random.value > (0.995 - Score / 1000.0))
 			{
 				CreateGoldChest();
 			}
 
-			if (Random.value > 0.99)
+			if (Random.value > (0.99 - Score / 1000.0))
 			{
 				CreateShark();
 			}
@@ -61,5 +61,10 @@ public class GameManager : MonoBehaviour
 		GameObject shark = Instantiate(SharkPrefab) as GameObject;
 		Transform t = shark.GetComponent<Transform>();
 		t.position = new Vector2(Random.Range(-5.0f, 5.0f), -5.0f);
+	}
+
+	public static float GetSpeed()
+	{
+		return 1 + (Score * 0.5f); 
 	}
 }
